@@ -15,7 +15,9 @@ Por el momento, el proyecto no tiene ninguna funcionalidad específica, ya que s
    ```sh
    git clone https://github.com/tu_usuario/curso.git
    
+
 2. Instala las dependencias: 
+   ```sh
     mvn install
     
 ## Contacto
