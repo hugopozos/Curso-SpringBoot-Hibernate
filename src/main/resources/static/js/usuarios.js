@@ -16,6 +16,8 @@ async function cargarUsuarios(){
     });
 
     const usuarios = await request.json();
+   
+    listadoHtml = '';
     for(let usuario of usuarios){
 
       let usuarioHtml = '<tr><td>'+ usuario.id +'</td><td>'+ usuario.nombre +' '+ usuario.apellido +'</td><td>'
