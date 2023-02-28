@@ -33,17 +33,17 @@ public class UsuarioController {
 
         Usuario usuario2 = new Usuario();
         usuario2.setId(234l);
-        usuario2.setNombre("Hugo");
-        usuario2.setApellido("Pozos");
-        usuario2.setEmail("pozos_herrera@outlook.es");
-        usuario2.setTelefono("2295521144");
+        usuario2.setNombre("Romina");
+        usuario2.setApellido("Ebrea");
+        usuario2.setEmail("romiaebr@outlook.es");
+        usuario2.setTelefono("222344145");
 
         Usuario usuario3 = new Usuario();
         usuario3.setId(432l);
-        usuario3.setNombre("Hugo");
-        usuario3.setApellido("Pozos");
-        usuario3.setEmail("pozos_herrera@outlook.es");
-        usuario3.setTelefono("2295521144");
+        usuario3.setNombre("Jesus");
+        usuario3.setApellido("Jeresualem");
+        usuario3.setEmail("jhjuniorquebendicion@outlook.es");
+        usuario3.setTelefono("2226669213");
 
         usuarios.add(usuario);
         usuarios.add(usuario2);
