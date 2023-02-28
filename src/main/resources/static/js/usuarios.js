@@ -16,10 +16,14 @@ async function cargarUsuarios(){
       }
     });
     const usuarios = await request.json();
+
+    for(let usuario of usuarios){
+
+    }
   
     console.log(usuarios);
 
-    let usuario = '<tr><td>123</td><td>Prueba Hugo Pozos</td><td>pozo@outlook.es</td><td>2123123123</td><td><a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td></tr>';
+    let usuarioHtml = '<tr><td>123</td><td>Prueba Hugo Pozos</td><td>pozo@outlook.es</td><td>2123123123</td><td><a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td></tr>';
 
     document.querySelector('#usuarios tbody').outerHTML = usuario;
 }
