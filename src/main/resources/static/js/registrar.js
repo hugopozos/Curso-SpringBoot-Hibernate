@@ -17,17 +17,30 @@ $(document).ready(function() {
         alert('La contrasena es diferente');
         return;
     }
-  
-      const request = await fetch('api/usuarios', {
+
+      fetch('/api/usuarios', {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({datos})
+        body: JSON.stringify(datos)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al guardar persona');
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log(data);
+        alert('Persona guardada correctamente');
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Error al guardar persona');
       });
-      const usuarios = await request.json();
+    }    
   
-  }
+  
   
   
