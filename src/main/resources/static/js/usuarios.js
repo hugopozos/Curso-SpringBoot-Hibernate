@@ -23,8 +23,9 @@ async function cargarUsuarios(){
       // Boton eliminar con js
       let botonEliminar = '<a href="#" onclick="eliminarUsuario('+ usuario.id +')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
 
+      let telefonoTexto = usuario.telefono == null ? '-' : usuario.telefono;
       let usuarioHtml = '<tr><td>'+ usuario.id +'</td><td>'+ usuario.nombre +' '+ usuario.apellido +'</td><td>'
-      + usuario.email +'</td><td>'+ usuario.telefono 
+      + usuario.email +'</td><td>'+ telefonoTexto
       + '</td><td>' + botonEliminar + '</td></tr>';
 
       listadoHtml += usuarioHtml;
