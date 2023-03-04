@@ -14,7 +14,7 @@ import java.security.Key;
 import java.util.Date;
 
 
-@Component @ComponentScan
+@Component 
 public class JWTUtil {
     @Value("${security.jwt.secret}")
     private String key;
