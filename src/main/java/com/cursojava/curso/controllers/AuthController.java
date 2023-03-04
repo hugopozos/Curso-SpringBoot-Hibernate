@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cursojava.curso.dao.UsuarioDao;
 import com.cursojava.curso.models.Usuario;
+import com.cursojava.curso.utils.JWTUtil;
 
-import utils.JWTUtil;
 
 @RestController
 public class AuthController {
