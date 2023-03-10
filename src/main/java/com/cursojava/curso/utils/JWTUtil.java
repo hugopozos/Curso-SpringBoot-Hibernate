@@ -1,4 +1,5 @@
 package com.cursojava.curso.utils;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -6,16 +7,22 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.stereotype.Component;
+
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
 import java.util.Date;
 
-
+/**
+ * @author Mahesh
+ */
 @Component 
 public class JWTUtil {
+
     @Value("${security.jwt.secret}")
     private String key;
 
@@ -35,8 +42,6 @@ public class JWTUtil {
      * @param subject
      * @return
      */
-
-    // Create va a crear el JWT (el texto que se le pasa al cliente)
     public String create(String id, String subject) {
 
         // The JWT signature algorithm used to sign the token

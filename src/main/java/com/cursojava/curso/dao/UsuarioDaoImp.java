@@ -1,6 +1,9 @@
 package com.cursojava.curso.dao;
 
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.cursojava.curso.models.Usuario;
@@ -14,10 +17,13 @@ import jakarta.persistence.PersistenceContext;
 @Transactional
 public class UsuarioDaoImp implements UsuarioDao {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UsuarioDaoImp.class);
+
     @PersistenceContext
     EntityManager entityManager; // Nos sirve para hacer la conxion a la base de datos
 
     @Override
+    @Transactional
     public List<Usuario> getUsuarios() {
         // Referencia a la clase Usuario.java y alli buscara la tabla de la base de
         // datos
@@ -38,11 +44,14 @@ public class UsuarioDaoImp implements UsuarioDao {
 
     @Override
     public Usuario obtenerUsuarioPorCredenciales(Usuario usuario) {
-        String query = "FROM Usuario WHERE email = :email AND password = :password";
-        List<Usuario>lista = entityManager.createQuery(query)
+        String query = "FROM Usuario WHERE email = :email";
+        List<Usuario> lista = entityManager.createQuery(query)
                 .setParameter("email", usuario.getEmail())
-                .setParameter("password", usuario.getPassword())
                 .getResultList();
+
+                LOGGER.debug("Query para obtenerUsuarioPorCredenciales: {}", query);
+                LOGGER.debug("Parametros para obtenerUsuarioPorCredenciales: email={}, password={}", usuario.getEmail(), usuario.getPassword());
+                LOGGER.debug("Resultados para obtenerUsuarioPorCredenciales: {}", lista);
 
                 if(lista.isEmpty()){
                     return null;
